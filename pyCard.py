@@ -20,11 +20,13 @@ class Card:
     color:Color
     rank:str
     value:int
+    
     def __init__(self,Suit,Color,rank,value):
         self.suit = Suit
         self.color = Color
         self.rank = rank
         self.value = value
+        
     def __str__(self):
         return self.rank+str(self.suit.value)
     

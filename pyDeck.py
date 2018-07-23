@@ -1,9 +1,11 @@
 #Copyright (c) 2018 rajchelcm. Subject to the MIT License available at github.com/rajchelcm/pyDeck.
 
+import random
 from pyCard import *
 
-class Deck():
-    deck:[Card] = []
+class Deck(): 
+    deck:[Card] = [] 
+
     def __init__(self, includeJokers = False):
         for s in Suit:
             if s == Suit.HEARTS or s == Suit.DIAMONDS:
@@ -26,3 +28,12 @@ class Deck():
         if includeJokers:
             self.deck.append(Card(s, Color.RED, "JKR", 0))
             self.deck.append(Card(s, Color.BLACK, "JKR", 0))
+
+    def __getitem__(self, index):
+        return self.deck[index]
+
+    def __len__(self):
+        return len(self.deck)
+
+    def shuffle(self):
+        random.shuffle(self.deck)
