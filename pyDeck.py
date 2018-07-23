@@ -37,3 +37,18 @@ class Deck():
 
     def shuffle(self):
         random.shuffle(self.deck)
+
+    def draw(self, count = None):
+        if count is None:
+            if len(self.deck) > 0:
+                return self.deck.pop()
+            else:
+                return None
+        elif len(self.deck) >= count:
+            toReturn = self.deck[len(self.deck)-count:len(self.deck)]
+            for i in range(0,count):
+                self.deck.pop()
+            return toReturn
+        else:
+            return None
+            
